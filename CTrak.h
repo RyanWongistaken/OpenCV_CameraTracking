@@ -23,6 +23,7 @@ class CTrak : public CBase4618 //Ctrak class inherits all the properties of CBAS
 {
 private:
 	cv::VideoCapture vid;
+	int colour_flag = 0;
 	cv::Mat frame, HSV, CSELECT, eroded, dilated;
 	cv::Rect r; 
 	std::vector<cv::Vec4i> hierarchy;
@@ -31,8 +32,10 @@ private:
 	double fpsnumb;
 	double start;
 	double freq;
-
-
+	int area;
+	int largest_area = 0;
+	std::vector<cv::Scalar> HSV_LOWER;
+	std::vector<cv::Scalar> HSV_UPPER;
 public:
 	CTrak(int chosen_camera);
 	~CTrak();

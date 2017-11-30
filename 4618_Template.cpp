@@ -52,12 +52,15 @@ int main(int argc, char* argv[])
 {	
 	CTrak takkerino(1);
 	CControl ard;
+	int i = 0;
 	while (1)
 	{
 	takkerino.update();
 	takkerino.draw();
-	ard.set_data(SERVO, 0, 500);
-	ard.set_data(SERVO, 1, 500);
+	ard.set_data(SERVO, 0, i);
+	ard.set_data(SERVO, 1, i);
+	//Sleep(750);
+	//i = i + 50;
 	}
 /*
 	CControl arduino;
