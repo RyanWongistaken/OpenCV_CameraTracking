@@ -33,13 +33,25 @@ private:
 	double start;
 	double freq;
 	int area;
-	int largest_area = 0;
+	int largest_area;
 	std::vector<cv::Scalar> HSV_LOWER;
 	std::vector<cv::Scalar> HSV_UPPER;
+	
+	int servo_x_position = 90;
+	int servo_y_position = 90;
+	
+	int position_y;
+	int position_x;
+
+	//multi threading
+	bool _thread_exit;
+	static UINT update_thread(CTrak* ptr);
+	static UINT draw_thread(CTrak* ptr);
 public:
 	CTrak(int chosen_camera);
 	~CTrak();
 	void draw();
 	void update();
-
+	void run();
+	void thread_start();
 };

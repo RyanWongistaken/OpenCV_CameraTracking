@@ -20,62 +20,10 @@
 
 
 
-////////////////////////////////////////////////////////////////
-// Display Video on screen
-////////////////////////////////////////////////////////////////
-void do_video()
-{
-  cv::VideoCapture vid;
-
-  vid.open(1);
-
-  if (vid.isOpened() == TRUE)
-  {
-    do
-    {
-      cv::Mat frame, edges;
-      vid >> frame;
-      if (frame.empty() == false)
-      {
-        cv::cvtColor(frame, edges, cv::COLOR_BGR2GRAY);
-        cv::GaussianBlur(edges, edges, cv::Size(7, 7), 1.5, 1.5);
-        cv::Canny(edges, edges, 0, 30, 3);
-        cv::imshow("edges", edges);
-      }
-    }
-    while (cv::waitKey(10) != ' ');
-  }      
-}		
-   
 
 int main(int argc, char* argv[])
 {	
-	CTrak takkerino(1);
-	CControl ard;
-	int i = 0;
-	while (1)
-	{
-	takkerino.update();
-	takkerino.draw();
-	ard.set_data(SERVO, 0, i);
-	ard.set_data(SERVO, 1, i);
-	//Sleep(750);
-	//i = i + 50;
-	}
-/*
-	CControl arduino;
-	
-	while (1)
-	{
-		arduino.set_data(DIGITAL, 8, 0);
-		arduino.set_data(SERVO, 0, 100);
-		arduino.set_data(SERVO, 1, 100);
-	}
-	
-
-	*/
-
-
-	//do_video ();
+	CTrak camera(1);
+	camera.run();
 
 }
