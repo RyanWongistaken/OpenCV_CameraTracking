@@ -61,8 +61,8 @@ void CTrak::update()
 	cv::inRange(HSV, HSV_LOWER[colour_flag], HSV_UPPER[colour_flag], CSELECT);//take the HSV and remove the undesired colors
 
 	//clean up the image
-	cv::erode(CSELECT, dilated, cv::getStructuringElement(cv::MORPH_RECT, cv::Size(17, 17)));
-	cv::dilate(dilated, eroded, cv::getStructuringElement(cv::MORPH_RECT, cv::Size(15, 15)));
+	cv::erode(CSELECT, dilated, cv::getStructuringElement(cv::MORPH_RECT, cv::Size(17, 17)));//3-6
+	cv::dilate(dilated, eroded, cv::getStructuringElement(cv::MORPH_RECT, cv::Size(15, 15)));//3-6
 
 
 	findContours(eroded, contours, hierarchy, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
