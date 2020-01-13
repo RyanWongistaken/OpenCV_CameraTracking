@@ -1,6 +1,7 @@
 ////////////////////////////////////////////////////////////////
 // 
-// Lab7 by Ryan Wong
+// Lab7 by Ryan Wong for BCIT-4618
+// Date Modified: 1-13-2020
 //
 ////////////////////////////////////////////////////////////////
 #include "stdafx.h"
@@ -18,12 +19,9 @@
 // OpenCV Library
 #pragma comment(lib,".\\opencv\\lib\\opencv_world310d.lib")
 
-
-
-
 int main(int argc, char* argv[])
 {	
-	CTrak camera(1);
-	camera.run();
+	CTrak camera(1); // Create object
+	camera.run(); // run the run function
 
 }
